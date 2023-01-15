@@ -5,6 +5,6 @@
  * Copyright (c) 2023 Trackwyse
  */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+import Button from "./Button";
+
+export default Button;
