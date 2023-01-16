@@ -14,6 +14,7 @@ import Text from "@/components/Text";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 
+//
 interface NavBarProps {}
 
 const NavBar: React.FC<NavBarProps> = () => {
