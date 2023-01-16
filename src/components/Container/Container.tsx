@@ -20,11 +20,13 @@ const Container: React.FC<ContainerProps> = ({
 }) => {
   const containerClasses = cn(
     "w-full",
-    "2xl:px-96",
-    "xl:px-64",
+    "3xl:px-96",
+    "2xl:px-80",
+    "xl:px-52",
     "lg:px-16",
     "md:px-16",
     "sm:px-16",
+    "px-8",
     // Have two columns for all screens above lg.
     includeCols && "lg:grid lg:grid-cols-2",
     // Include custom class name if provided.

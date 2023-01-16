@@ -9,7 +9,7 @@ import cn from "classnames";
 
 const textVariantClasses = {
   default: "",
-  header: "text-6xl font-medium leading-tight",
+  header: "lg:text-6xl font-medium leading-tight text-4xl",
   title: "text-2xl font-medium",
   subtitle: "text-base font-medium",
 };
