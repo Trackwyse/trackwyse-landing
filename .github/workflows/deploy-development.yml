@@ -1,0 +1,25 @@
+name: deploy-development
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  deploy-development:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd /var/www/staging.trackwyse.com
+            git pull origin development
+            source ~/.nvm/nvm.sh
+            nvm use node
+            yarn install
+            yarn build
+            pm2 restart staging.trackwyse.com
