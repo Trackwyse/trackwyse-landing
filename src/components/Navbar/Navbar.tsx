@@ -11,8 +11,8 @@ import Image from "next/image";
 import { logo } from "@/assets";
 import Content from "@/lib/content";
 import Text from "@/components/Text";
+import Button from "@/components/Button";
 import Container from "@/components/Container";
-import Button from "../Button";
 
 interface NavBarProps {}
 
