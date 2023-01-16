@@ -5,13 +5,15 @@
  * Copyright (c) 2023 Trackwyse
  */
 
-import Container from "@/components/Container";
+import Navbar from "@/components/Navbar";
 import Carousel from "@/components/Carousel";
+import Container from "@/components/Container";
 import { mockupLanding, mockupMaps, mockupModify } from "@/assets";
 
 const Home: React.FC = () => {
   return (
     <>
+      <Navbar />
       <Container>
         <div></div>
         <div className="flex justify-end">
