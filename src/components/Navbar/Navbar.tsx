@@ -59,6 +59,7 @@ const NavBar: React.FC<NavBarProps> = () => {
             <NavItem key={item.name} {...item} className="hidden lg:flex" />
           ))}
         </div>
+
         <div className="flex items-center">
           <Button className="hidden lg:flex">Get Started</Button>
           <IconButton
