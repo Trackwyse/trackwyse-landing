@@ -11,7 +11,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body className="select-none bg-tan">
+      <body className="bg-tan">
         <Main />
         <NextScript />
       </body>

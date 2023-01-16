@@ -4,6 +4,7 @@
  *
  * Copyright (c) 2023 Trackwyse
  */
+import { mockupLanding, mockupMaps, mockupModify, mockupPremium } from "@/assets";
 
 const Content = {
   NavItems: [
@@ -24,6 +25,7 @@ const Content = {
       href: "/privacy",
     },
   ],
+  CarouselImages: [mockupLanding, mockupMaps, mockupModify, mockupPremium],
 };
 
 export default Content;
