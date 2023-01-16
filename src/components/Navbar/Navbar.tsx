@@ -14,7 +14,6 @@ import Text from "@/components/Text";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 
-//
 interface NavBarProps {}
 
 const NavBar: React.FC<NavBarProps> = () => {
@@ -22,7 +21,11 @@ const NavBar: React.FC<NavBarProps> = () => {
     <Container includeCols={false} className="mt-16">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-8">
-          <Image src={logo} alt="logo" />
+          <Link href="/">
+            <div className="hover:opacity-50">
+              <Image src={logo} alt="logo" />
+            </div>
+          </Link>
 
           {Content.NavItems.map((item) => (
             <NavItem key={item.name} {...item} />

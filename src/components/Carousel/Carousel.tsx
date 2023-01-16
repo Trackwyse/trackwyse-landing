@@ -58,9 +58,9 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
           key={currentImageIndex}
           initial={{
             opacity: 0,
-            scale: 0.5,
+            scale: 0.3,
             x: 100 * animationMultiplier,
-            rotate: 5 * animationMultiplier,
+            rotate: 10 * animationMultiplier,
           }}
           animate={{
             x: 0,
@@ -70,11 +70,11 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
           }}
           exit={{
             opacity: 0,
-            scale: 0.5,
+            scale: 0.3,
             x: -100 * animationMultiplier,
-            rotate: -5 * animationMultiplier,
+            rotate: -10 * animationMultiplier,
           }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.5, ease: "backIn" }}
         >
           <Image src={images[currentImageIndex]} alt="CarouselImage" />
         </motion.div>
