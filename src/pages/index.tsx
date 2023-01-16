@@ -4,6 +4,7 @@
  *
  * Copyright (c) 2023 Trackwyse
  */
+import cn from "classnames";
 import Head from "next/head";
 
 import Content from "@/lib/content";
@@ -22,14 +23,20 @@ const Home: React.FC = () => {
 
       <Navbar />
       <Container className="mt-24">
-        <div className="inline-flex flex-col justify-center gap-y-8">
+        <div
+          className={cn(
+            "inline-flex flex-col justify-center gap-y-8",
+            "lg:items-start lg:text-left",
+            "items-center text-center"
+          )}
+        >
           <Text variant="header">The Easy Way to Keep Track of Your Belongings</Text>
           <Text variant="subtitle" className="w-2/3">
             Effortless possession tracking with our advanced mobile app and QR code labels.
           </Text>
-          <Button className=" self-start">Get Started</Button>
+          <Button>Get Started</Button>
         </div>
-        <div className="flex justify-end">
+        <div className={cn("lg:justify-end", "flex justify-center")}>
           <Carousel images={Content.CarouselImages} />
         </div>
       </Container>
