@@ -8,6 +8,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Poppins } from "@next/font/google";
+import Script from "next/script";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800", "900"],
