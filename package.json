@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env BUILD_ENV=development next dev",
     "build": "next build",
-    "start:staging": "next start -p 3006",
-    "start:production": "next start -p 3007",
+    "start:staging": "cross-env BUILD_ENV=staging next start -p 3006",
+    "start:production": "cross-env BUILD_ENV=production next start -p 3007",
     "lint": "next lint"
   },
   "dependencies": {
@@ -28,6 +28,7 @@
   "devDependencies": {
     "@types/qs": "^6.9.7",
     "autoprefixer": "^10.4.13",
+    "cross-env": "^7.0.3",
     "postcss": "^8.4.21",
     "prettier": "^2.8.3",
     "prettier-plugin-tailwindcss": "^0.2.1",
