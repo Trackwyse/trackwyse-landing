@@ -19,6 +19,6 @@
       "@/*": ["./src/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/.well-known/apple-app-site-association.tsx"],
   "exclude": ["node_modules"]
 }
