@@ -22,7 +22,18 @@ const apiClient = axios.create({
 const updateFoundLabelDetails = (
   values: FoundLabelDetailsInput
 ): Promise<FoundLabelDetailsAPIResponse> => {
-  const { id, phoneNumber, recoveryLocation, exactLocation } = values;
+  let { id, phoneNumber, recoveryLocation, exactLocation } = values;
+
+  // check if the values of recoveryLocation and exactLocation are empty
+  // if they are, then we don't want to send them to the API
+  // because the API will throw an error if we do
+  if (recoveryLocation && Object.values(recoveryLocation).every((value) => value === "")) {
+    recoveryLocation = undefined;
+  }
+
+  if (exactLocation && Object.values(exactLocation).every((value) => value === "")) {
+    exactLocation = undefined;
+  }
 
   return apiClient.post(`/api/v1/labels/found/${id}`, {
     phoneNumber,

@@ -5,10 +5,13 @@
  * Copyright (c) 2023 Trackwyse
  */
 
-import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { QueryClientProvider } from "@tanstack/react-query";
 import { Poppins } from "@next/font/google";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { QueryClientProvider } from "@tanstack/react-query";
+
+import "@/styles/globals.css";
 import queryClient from "@/lib/queryClient";
 
 const poppins = Poppins({
@@ -19,6 +22,7 @@ const poppins = Poppins({
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <QueryClientProvider client={queryClient}>
+      <ToastContainer limit={1} />
       <main className={poppins.className}>
         <Component {...pageProps} />
       </main>
