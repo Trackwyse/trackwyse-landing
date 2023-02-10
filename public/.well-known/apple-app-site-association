@@ -5,10 +5,10 @@
         appIDs: [ "com.js00001.trackwyse", "dev.js00001.trackwyyse", ],
         components: [
           {
-            "/": "/help/website/*",
+            "/": "/app/*",
             exclude: true,
             comment:
-              "Matches any URL whose path starts with /help/website/ and instructs the system not to open it as a universal link",
+              "Matches any URL whose path starts with /app/ and instructs the system to open it as a universal link",
           },
         ],
       },
