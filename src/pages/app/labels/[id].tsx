@@ -4,6 +4,7 @@
  *
  * Copyright (c) 2023 Trackwyse
  */
+import { useState } from "react";
 import Image from "next/image";
 import { useFormik } from "formik";
 import { useRouter } from "next/router";
@@ -17,6 +18,7 @@ import api from "@/api";
 const FoundLabel: React.FC = () => {
   const router = useRouter();
   const { id } = router.query;
+  const [label, setLabel] = useState<Label>({} as Label);
 
   const labelQuery = useQuery({
     queryKey: ["label", id],
@@ -25,7 +27,9 @@ const FoundLabel: React.FC = () => {
         id: id as string,
       });
     },
-    onSuccess: () => {},
+    onSuccess: ({ data }) => {
+      setLabel(data.label);
+    },
     onError: () => {},
   });
 
@@ -46,15 +50,14 @@ const FoundLabel: React.FC = () => {
     <div className="flex min-h-screen w-full justify-center">
       <form className="w-96" onSubmit={labelForm.handleSubmit}>
         <Image src="/logo.svg" alt="Trackwyse Logo" width={181.88} height={48} className="my-20" />
-        <Text variant="title">Login to Trackwyse</Text>
-        <Input
-          containerClassName="mt-4"
-          placeholder="Email address"
-          disabled={modifyLabelMutation.isLoading}
-          // error={labelForm.errors.email}
-          // value={labelForm.values.email}
-          onChange={labelForm.handleChange("email")}
-        />
+        <Text variant="title" className="my-4">
+          Label Details
+        </Text>
+        <Text variant="subtitle">
+          Thank you for finding this label. The owner has been notified and has provided the
+          following information
+        </Text>
+        <Input disabled containerClassName="mt-4" placeholder="Email address" />
 
         <Button type="submit" className="mt-4 w-full" loading={modifyLabelMutation.isLoading}>
           Login to Trackwyse

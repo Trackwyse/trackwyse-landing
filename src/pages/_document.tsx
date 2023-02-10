@@ -14,7 +14,7 @@ const Document = () => {
       <Head>
         <GoogleAnalytics />
       </Head>
-      <body className="bg-tan">
+      <body>
         <Main />
         <NextScript />
       </body>
