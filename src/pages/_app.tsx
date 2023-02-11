@@ -5,20 +5,29 @@
  * Copyright (c) 2023 Trackwyse
  */
 
-import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Poppins } from "@next/font/google";
-import Script from "next/script";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { QueryClientProvider } from "@tanstack/react-query";
+
+import "@/styles/globals.css";
+import queryClient from "@/lib/queryClient";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <main className={poppins.className}>
-      <Component {...pageProps} />
-    </main>
+    <QueryClientProvider client={queryClient}>
+      <ToastContainer limit={1} />
+      <main className={poppins.className}>
+        <Component {...pageProps} />
+      </main>
+    </QueryClientProvider>
   );
-}
+};
+
+export default App;

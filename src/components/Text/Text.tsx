@@ -10,8 +10,8 @@ import cn from "classnames";
 const textVariantClasses = {
   default: "",
   header: "lg:text-6xl font-medium leading-tight text-4xl",
-  title: "text-2xl font-medium",
-  subtitle: "text-base font-medium",
+  title: "text-2xl font-semibold",
+  subtitle: "text-base  text-gray-500",
 };
 
 interface TextProps {

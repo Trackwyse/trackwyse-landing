@@ -1,0 +1,17 @@
+{
+  applinks: {
+    details: [
+      {
+        appIDs: [ "com.js00001.trackwyse", "dev.js00001.trackwyyse", ],
+        components: [
+          {
+            "/": "/app/*",
+            exclude: true,
+            comment:
+              "Matches any URL whose path starts with /app/ and instructs the system to open it as a universal link",
+          },
+        ],
+      },
+    ],
+  },
+};

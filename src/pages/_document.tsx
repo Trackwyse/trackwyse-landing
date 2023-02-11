@@ -8,16 +8,18 @@
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Html, Head, Main, NextScript } from "next/document";
 
-export default function Document() {
+const Document = () => {
   return (
     <Html lang="en">
       <Head>
         <GoogleAnalytics />
       </Head>
-      <body className="bg-tan">
+      <body>
         <Main />
         <NextScript />
       </body>
     </Html>
   );
-}
+};
+
+export default Document;

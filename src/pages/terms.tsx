@@ -26,7 +26,7 @@ const TermsOfService: React.FC<TermsOfServiceProps> = ({ data }) => {
       </Head>
 
       <Navbar />
-      <Container className="mt-24" includeCols={false}>
+      <Container className="my-24" includeCols={false}>
         <Text variant="header">{title}</Text>
         <Text className="mt-16 whitespace-pre-line">{content}</Text>
       </Container>
