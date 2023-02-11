@@ -8,7 +8,6 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useFormik } from "formik";
-import { AxiosError } from "axios";
 import { useRouter } from "next/router";
 import { toast as Toast } from "react-toastify";
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -18,6 +17,7 @@ import Text from "@/components/Text";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import TextArea from "@/components/TextArea";
+import errorHandler from "@/lib/errorHandler";
 
 const FoundLabel: React.FC = () => {
   const router = useRouter();
@@ -34,7 +34,9 @@ const FoundLabel: React.FC = () => {
     onSuccess: ({ data }) => {
       setLabel(data.label);
     },
-    onError: () => {},
+    onError: (err) => {
+      errorHandler.handle(err);
+    },
   });
 
   const modifyLabelMutation = useMutation({
@@ -76,22 +78,7 @@ const FoundLabel: React.FC = () => {
             setLabel(data.label);
           },
           onError: (err) => {
-            if (err instanceof AxiosError) {
-              if (err?.response?.data?.message === "Invalid address") {
-                labelForm.setErrors({
-                  exactLocation: {
-                    address1: "Invalid address",
-                  },
-                  recoveryLocation: {
-                    address1: "Invalid address",
-                  },
-                });
-              } else {
-                Toast.error("An error occurred. Please try again later.");
-              }
-            } else {
-              Toast.error("An error occurred. Please try again later.");
-            }
+            errorHandler.handle(err, labelForm);
           },
         }
       );
